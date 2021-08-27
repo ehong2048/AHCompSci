@@ -8,9 +8,12 @@ parser.add_argument("--image", required=True, help = "image path")
 args = vars(parser.parse_args())
 
 image = cv2.imread(args['image'])
-print("image width: ".format(image.shape[1]))
-print("image height: ".format(image.shape[0]))
-print("color channels: ".format(image.shape[2]))
+print(image.shape)
+print(f'width: {image.shape[1]}')
+print(f'height: {image.shape[0]}')
+print(f'channels: {image.shape[2]}')
 
-cv2.imshow("Image", image)
+cv2.imshow("Groot!", image)
+cv2.waitKey(0)
 
+cv2.imwrite("groot_image.jpg", image)
