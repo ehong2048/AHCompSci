@@ -16,3 +16,21 @@ def rotate(img, angle, center = None, scale=1.0):
     rotated_img = cv2.warpAffine(img, mat, (width, height))
 
     return rotated_img
+
+def resize(img, width = None, height = None, inter = cv2.INTER_AREA):
+    (h, w) = img.shape[:2]
+    
+    if width is None and height is None:
+        return img
+    
+    if width is not None:
+        r = width/float(w) #new width divided by old width of image
+        dim = (width, int(h * r)) #new image dimensions is 150 by corresponding new resized height
+
+    else:
+        r = height/float(h) #new height divided by old height of image
+        dim = (int(w * r), height) #new image dimensions is 150 by corresponding new resized width
+    
+    resized_img = cv2.resize(img, dim, interpolation = inter)
+
+    return resized_img

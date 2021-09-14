@@ -10,5 +10,8 @@ args = vars(parser.parse_args())
 img = cv2.imread(args["image"])
 cv2.imshow("Joseph Joe Aguilar ", img)
 
-aspect_r = 150.0/img.shape[0] #150 pixels divided by old width of image
-dim = (150, int(img.shape[1] * aspect_r)) #new image dimensions is 150 by corresponding new resized height
+resized_img = imutils.resize(img, height = 2000)
+cv2.imshow("Thanksgiving Joseph", resized_img)
+
+cv2.waitKey(0)
+
